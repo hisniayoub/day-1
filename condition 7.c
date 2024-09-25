@@ -8,7 +8,7 @@ int main() {
      if(a >= 65 && a <= 90){
      printf("le caractère donné est un alphabet majuscule .");
      }
-     else if(a >= 65  && a <= 122){
+     else if(a >= 97  && a <= 122){
      printf("le caractere donné est un alphabet minuscule");
     }
     else
