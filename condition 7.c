@@ -1,15 +1,17 @@
+#include <stdio.h>
+
 int main() {
     char a;
-    
-     printf("entre a : ");
+
+     printf("entrer le caractere  : ");
      scanf("%c",&a);
-     if(a >= 'A' && a <= 'Z'){
+     if(a >= 65 && a <= 90){
      printf("le caractère donné est un alphabet majuscule .");
      }
-    if(a >= 'a' && a <= 'z'){
-     printf("le caractère donné est un alphabet minuscule");
+     else if(a >= 65  && a <= 122){
+     printf("le caractere donné est un alphabet minuscule");
     }
-    else 
-    printf(" hada rakm");
+    else
+    printf(" c'est un autre caractere ");
     return 0;
 }
