@@ -65,7 +65,7 @@ void  afficheReservation(){
             printf("veuillez entrer le niméro unique de reservation");
             scanf("%d",&ref);
      for(i = 0 ; i < nombreReservation ; i++){
-            if((i=ref)==0){
+            if(refUnique[i] == ref){
               indx=i;
      }
      }
