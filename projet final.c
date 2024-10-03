@@ -26,11 +26,11 @@ void ajouteRreservation(){
             scanf("%s",nom[nombreReservation]);
             printf("le prenom : ");
             scanf("%s",prenom[nombreReservation]);
-            printf("le niméro de téléphone  : ");
+            printf("le nimero de telephone  : ");
             scanf("%s",tele[nombreReservation]);
             printf("age : ");
             scanf("%d",&age[nombreReservation]);
-            printf("Statut(validé, reporté, annulé, traité).");
+            printf("Statut(valide, reporte, annule, traite).");
             scanf("%s",statut[nombreReservation]);
             refUnique[nombreReservation] = nombreReservation + 1 ;
             printf("la date de reservateur:\n ");
@@ -38,7 +38,7 @@ void ajouteRreservation(){
             scanf("%d",&jrs[nombreReservation]);
             printf("mois: ");
             scanf("%d",&mois[nombreReservation]);
-            printf("année: ");
+            printf("annee: ");
             scanf("%d",&ans[nombreReservation]);
            nombreReservation++;
 
@@ -50,7 +50,7 @@ void  afficheReservation(){
             printf("\n");
             printf("le nom                  : %s \n",nom[i]);
             printf("le prenom               : %s \n",prenom[i]);
-            printf("niméro de telephone     : %s \n",tele[i]);
+            printf("nimero de telephone     : %s \n",tele[i]);
             printf("l'age                   : %d \n",age[i]);
             printf("statut                  : %s\n",statut[i]);
             printf("referance unique        : %d\n", refUnique[i]);
@@ -62,7 +62,7 @@ void  afficheReservation(){
  void  rochparNumUnique(){
 
      int ref;
-            printf("veuillez entrer le niméro unique de reservation");
+            printf("veuillez entrer le nimero unique de reservation");
             scanf("%d",&ref);
      for(i = 0 ; i < nombreReservation ; i++){
             if(refUnique[i] == ref){
@@ -74,7 +74,7 @@ void  afficheReservation(){
      else{
                           printf("le nom                  : %s \n",nom[indx]);
                           printf("le prenom               : %s \n",prenom[indx]);
-                          printf("niméro de telephone     : %s \n",tele[indx]);
+                          printf("nimero de telephone     : %s \n",tele[indx]);
                           printf("l'age                   : %d \n",age[indx]);
                           printf("statut                  : %s\n",statut[indx]);
                           printf("referance unique        : %d\n",refUnique[indx]);
@@ -99,7 +99,7 @@ void  afficheReservation(){
      else{
           printf("le nom                  : %s \n",nom[indx]);
             printf("le prenom               : %s \n",prenom[indx]);
-            printf("niméro de telephone     : %s \n",tele[indx]);
+            printf("nimero de telephone     : %s \n",tele[indx]);
             printf("l'age                   : %d \n",age[indx]);
             printf("statut                  : %s\n",statut[indx]);
             printf("referance unique        : %d\n",refUnique[indx]);
@@ -109,7 +109,7 @@ void  afficheReservation(){
  }
 //  void supprime(){
 //      char sup[50];
-//             printf("veuillez entrer le reservation qui vous supprimé ");
+//             printf("veuillez entrer le reservation qui vous supprime ");
 //             scanf("%s",sup);
 //             for(i=0;i= nombreReservation ;i++){
 //                 if(strcmp())
@@ -123,12 +123,12 @@ int main() {
 
    while(1){
 
-       printf("1. Ajouter une réservation .\n");
-       printf("2. Afficher les détails d'une réservation .\n");
-       printf("3. Recherche des réservations : .\n");
-       printf("4. Modifier ou supprimer une réservation.\n");
+       printf("1. Ajouter une reservation .\n");
+       printf("2. Afficher les details d'une reservation .\n");
+       printf("3. Recherche des reservations : .\n");
+       printf("4. Modifier ou supprimer une reservation.\n");
        printf("6. Statistiques .\n");
-       printf("0. quitté le programme \n");
+       printf("0. quitte le programme \n");
        printf(" choix : ");
        scanf("%d",&choix);
 
