@@ -1,168 +1,161 @@
+// Online C compiler to run C program online
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
-           char  rch[100][50];
-           int i;
-           int choix;
-           char titre[100][30];
-           char outeur[100][30];
-           int prix[100];
-           int qntt[100];
-           int nbr = 0;
-           char lvrsup[30];
 
-     void modifie(){
-           int   nq;
-           int inx=-1;
-           char chr[30];
-               printf(" le nom de live qui vous modifie : ");
-               scanf("%s",chr);
-    for(i=0;i<nbr;i++){
-           if(strcmp(titre[i],chr)==0)
-
-                inx = i;
-    }
-
-           if(inx==-1){
-              printf("live NE EXIST PAS :\n ");
-    }
-          else{
-              printf("nouvel  quantt : ");
-              scanf("%d",&nq);
-              qntt[inx]=nq;
-              printf(" nouvele quantt de livre %s est : %d \n",chr,qntt[inx]);
-     }
-     }
-    void  totale(){
-       int s=0;
-        for(i=0;i<nbr;i++){
-            s=s+qntt[i];
-        }
-       printf("le nombre totale de livre est :%d \n ",s);
-     }
-
-     void rocherche (){
-          char  rchrch[30];
-        int indx=-1;
-         printf("Titre du livre qui vous rochercher. ");
-          scanf("%s", rchrch);
-         for(i=0;i<nbr;i++){
-             if(strcmp(titre[i],rchrch)==0){
-
-                indx = i;}
-             }
-            if(indx == -1)
-            printf("le livre ne exist pas \n");
-             else{
-              printf("le livre est %s ; \n",titre[indx]);
-                printf("auteur est %s ;\n ", outeur[indx]);
-                  printf("prix  %d ; \n", prix[indx]);
-                    printf("quantite %d ; \n", qntt[indx]);
-             }
+char nom[100][100];
+char prenom[100][100];
+char tele[100][100];
+int age[100];
+char statut[100][100];
+int refUnique[100];
+int jrs[50];
+int mois[50];
+int ans[50];
+int nombreReservation =0 ;
+int i ;
+int indx=-1;
 
 
-     }
-
-     void ajoute(){
-
-                    printf("Titre du livre. ");
-                      scanf("%c", titre[nbr]);
-                    printf("Auteur du livre. ");
-                    scanf("%s", outeur[nbr]);
-                    printf("Prix du livre. ");
-                    scanf("%d", &prix[nbr]);
-                    printf("Quantité en stock. ");
-                    scanf("%d", &qntt[nbr]);
-                    nbr++;
-
-     }
-
-     void affiche(){
-         for (i = 0; i < nbr; i++) {
-                    printf("titre : %s\n", titre[i]);
-                    printf("outeur : %s\n", outeur[i]);
-                    printf("prix: %d\n", prix[i]);
-                    printf("quantite : %d\n", qntt[i]);
-                    printf("\n ");
-                }
-     }
 
 
-void supprime(){
-  int  ind =-1;
+void ajouteRreservation(){
 
-                    printf("entrer le live qui vous supprime : ");
-                    scanf("%s",lvrsup);
-               for(i=0;i<nbr;i++){
-                   if( strcmp(titre[i],lvrsup) == 0)
-                       ind = i;
-                   }
-            if(ind ==-1){
-                printf("makunch had lktab \n");
-                printf("hado homa lktoba li andn \n");
-            }
-             else{
-                for(i=ind;i<nbr;i++){
-                   strcpy(titre[i],titre[i+1] ) ;
-                    strcpy( outeur[i],outeur[i+1]);
-                     prix[i]=prix[i+1];
-                     qntt[i]=qntt[i+1];
+            printf("vueillez entrer les information suivants :\n");
+            printf("le nom : ");
+            scanf("%s",nom[nombreReservation]);
+            printf("le prenom : ");
+            scanf("%s",prenom[nombreReservation]);
+            printf("le niméro de téléphone  : ");
+            scanf("%s",tele[nombreReservation]);
+            printf("age : ");
+            scanf("%d",&age[nombreReservation]);
+            printf("Statut(validé, reporté, annulé, traité).");
+            scanf("%s",statut[nombreReservation]);
+            refUnique[nombreReservation] = nombreReservation + 1 ;
+            printf("la date de reservateur:\n ");
+            printf("jours: ");
+            scanf("%d",&jrs[nombreReservation]);
+            printf("mois: ");
+            scanf("%d",&mois[nombreReservation]);
+            printf("année: ");
+            scanf("%d",&ans[nombreReservation]);
+           nombreReservation++;
 
-                 }
-                nbr--;
-           printf("le livre a ete supprime \n");
+
 }
+
+void  afficheReservation(){
+    for(i = 0 ; i < nombreReservation ; i++){
+            printf("\n");
+            printf("le nom                  : %s \n",nom[i]);
+            printf("le prenom               : %s \n",prenom[i]);
+            printf("niméro de telephone     : %s \n",tele[i]);
+            printf("l'age                   : %d \n",age[i]);
+            printf("statut                  : %s\n",statut[i]);
+            printf("referance unique        : %d\n", refUnique[i]);
+            printf("la date de reservateur  : %d/%d/%d \n",jrs[i],mois[i],ans[i]);
+            printf("\n");
+    }
 }
+
+ void  rochparNumUnique(){
+
+     int ref;
+            printf("veuillez entrer le niméro unique de reservation");
+            scanf("%d",&ref);
+     for(i = 0 ; i < nombreReservation ; i++){
+            if((i=ref)==0){
+              indx=i;
+     }
+     }
+            if(indx==-1)
+                printf("le referance que vous avez saisire n'existe pas");
+     else{
+                          printf("le nom                  : %s \n",nom[indx]);
+                          printf("le prenom               : %s \n",prenom[indx]);
+                          printf("niméro de telephone     : %s \n",tele[indx]);
+                          printf("l'age                   : %d \n",age[indx]);
+                          printf("statut                  : %s\n",statut[indx]);
+                          printf("referance unique        : %d\n",refUnique[indx]);
+                          printf("la date de reservateur  : %d/%d/%d \n",jrs[indx],mois[indx],ans[indx]);
+
+     }
+
+
+ }
+  void  rochParNom(){
+     int indx=-1;
+     char noom[60];
+     printf("veuillez entrer le nom de reservation");
+     scanf("%s",noom);
+     for(i = 0 ; i < nombreReservation ; i++){
+         if(strcmp(nom[i],noom)==0){
+         indx=i;
+         }
+     }
+     if(indx==-1)
+                printf("le referance que vous avez saisire n'existe pas");
+     else{
+          printf("le nom                  : %s \n",nom[indx]);
+            printf("le prenom               : %s \n",prenom[indx]);
+            printf("niméro de telephone     : %s \n",tele[indx]);
+            printf("l'age                   : %d \n",age[indx]);
+            printf("statut                  : %s\n",statut[indx]);
+            printf("referance unique        : %d\n",refUnique[indx]);
+            printf("la date de reservateur  : %d/%d/%d \n",jrs[indx],mois[indx],ans[indx]);
+
+     }
+ }
+//  void supprime(){
+//      char sup[50];
+//             printf("veuillez entrer le reservation qui vous supprimé ");
+//             scanf("%s",sup);
+//             for(i=0;i= nombreReservation ;i++){
+//                 if(strcmp())
+// }
+//  }
+
+
 
 int main() {
-
-
+    int choix;
 
    while(1){
-        printf("             1. Ajouter un Livre au Stock.\n");
-        printf("             2. Afficher Tous les Livres Disponibles.\n");
-        printf("             3. ROCHERCHE D UN LIVE.\n");
-        printf("             4. Supprimer un Livre du Stock.\n");
-         printf("             5.Afficher le Nombre Total de Livres en Stock .\n");
-         printf("             6.Mettre à jour la quantité d'un livre. .\n");
 
-        printf("              0. QUITTE.\n");
+       printf("1. Ajouter une réservation .\n");
+       printf("2. Afficher les détails d'une réservation .\n");
+       printf("3. Recherche des réservations : .\n");
+       printf("4. Modifier ou supprimer une réservation.\n");
+       printf("6. Statistiques .\n");
+       printf("0. quitté le programme \n");
+       printf(" choix : ");
+       scanf("%d",&choix);
 
-
-        printf("      choix : ");
-        scanf("%d", &choix);
-
-        switch (choix) {
-            case 1:
-                   ajoute();
+       switch(choix){
+           case 1 :
+                   ajouteRreservation();
                 break;
-            case 2 :
-               affiche();
+           case 2 :
+                   afficheReservation();
+                 break;
+           case 3 :
 
+                    rochParNom();
+                   break;
+           case 4 :
+                rochparNumUnique();
                 break;
-            case 3 :
-                  rocherche();
-                  break;
-            case 4 :
-                  supprime();
-                  affiche();
+           case 5 :
                break;
-            case 5 :
-                  totale();
-                  break;
-          case 6 :
-                  modifie();
+           case 6 :
+               break;
+           case 0 :
+               break;
 
-                  break;
-            case 0:
-             printf("good by!\n");
-                return 0;
+       }
+   }
 
 
-            default:
-                printf("Choix makynch 3awd mara akhra.\n");
-        }
-
-
-}
     return 0;
 }
